@@ -19,5 +19,11 @@ namespace FirstREST.Lib_Primavera.Model
             set;
         }
 
+        public string pvp1
+        {
+            get;
+            set;
+        }
+
     }
 }

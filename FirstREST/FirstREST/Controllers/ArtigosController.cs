@@ -14,7 +14,7 @@ namespace FirstREST.Controllers
     public class ArtigosController : ApiController
     {
         //
-        // GET: /Artigos/
+        // GET: /Artigos?max_price=500
 
         public IEnumerable<Lib_Primavera.Model.Artigo> Get()
         {

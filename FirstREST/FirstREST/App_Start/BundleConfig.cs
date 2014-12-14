@@ -8,17 +8,14 @@ namespace FirstREST
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
-
+       
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                        "~/Scripts/jquery-{version}.js",
                         "~/Scripts/angular.min.js",
+                        "~/Scripts/angular-route.min.js",
                         "~/Scripts/angular-resource.min.js",
                         "~/Scripts/angular-cookies.min.js",
                         "~/Scripts/angular-animate.min.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                        "~/Scripts/app.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
@@ -47,6 +44,16 @@ namespace FirstREST
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new StyleBundle("~/Content/store-styles").Include(
+                        "~/Content/store-styles/animate.css",
+                        "~/Content/store-styles/bootstrap.min.css",
+                        "~/Content/store-styles/font-awesome.css",
+                        "~/Content/store-styles/main.css",
+                        "~/Content/store-styles/prettyPhoto.css",
+                        "~/Content/store-styles/price-range.css",
+                        "~/Content/store-styles/responsive.css"
+                ));
         }
     }
 }

@@ -307,6 +307,9 @@ namespace FirstREST.Lib_Primavera
                     art = new Model.Artigo();
                     art.CodArtigo = objList.Valor("artigo");
                     art.DescArtigo = objList.Valor("descricao");
+              
+                    //art.pvp1 = objList.Valor("pesoliquido");
+                   
 
                     listArts.Add(art);
                     objList.Seguinte();
