@@ -1,4 +1,4 @@
-﻿app.controller('HomepageController', ['$scope', 'ProductService', 'AuthenticationService', function ($scope, ProductService, AuthenticationService) {
+﻿app.controller('HomepageController', ['$scope', 'ProductService', 'AuthenticationService', 'BasketService', function ($scope, ProductService, AuthenticationService, BasketService) {
 
     $scope.products = [];
     ProductService.getProducts()
@@ -13,4 +13,12 @@
         Moeda: 'EUR'
     };
     $scope.register = AuthenticationService.register;
+
+    $scope.basket = BasketService.basket;
+    $scope.addProduct = BasketService.addProduct;
+    $scope.incrementQuantity = BasketService.incrementQuantity;
+    $scope.decrementQuantity = BasketService.decrementQuantity;
+    $scope.isAddedToBasket = function (product) {
+        return $scope.basket.hasOwnProperty(product.CodArtigo);
+    };
 }]);

@@ -24,6 +24,27 @@ namespace FirstREST.Controllers
         // GET api/cliente/5    
         public Cliente Get(string id)
         {
+            string username = null;
+            string password = null;
+            foreach (var parameter in Request.GetQueryNameValuePairs())
+            {
+                if (parameter.Key == "username")
+                {
+                    username = parameter.Value;
+                }
+
+                if (parameter.Key == "password")
+                {
+                    password = parameter.Value;
+                }
+            }
+
+            if (username != null && password != null)
+            {
+                return Lib_Primavera.Comercial.GetClientByCredentials(username, password);
+            }
+
+
             Lib_Primavera.Model.Cliente cliente = Lib_Primavera.Comercial.GetCliente(id);
             if (cliente == null)
             {

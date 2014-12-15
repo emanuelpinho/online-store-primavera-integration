@@ -32,6 +32,7 @@ namespace FirstREST
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+                        /*
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",
                         "~/Content/themes/base/jquery.ui.selectable.css",
@@ -43,16 +44,21 @@ namespace FirstREST
                         "~/Content/themes/base/jquery.ui.tabs.css",
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
-                        "~/Content/themes/base/jquery.ui.theme.css"));
+                        "~/Content/themes/base/jquery.ui.theme.css",
+                        */
+                        "~/Content/themes/base/bootstrap.min.css",
+                        "~/Content/themes/base/bootstrap-theme.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/store-styles").Include(
-                        "~/Content/store-styles/animate.css",
+                        //"~/Content/store-styles/animate.css",
                         "~/Content/store-styles/bootstrap.min.css",
+                        "~/Content/store-styles/bootstrap-theme.min.css"
+                        /*"~/Content/store-styles/bootstrap-theme.min.css",
                         "~/Content/store-styles/font-awesome.css",
                         "~/Content/store-styles/main.css",
                         "~/Content/store-styles/prettyPhoto.css",
                         "~/Content/store-styles/price-range.css",
-                        "~/Content/store-styles/responsive.css"
+                        "~/Content/store-styles/responsive.css"*/
                 ));
         }
     }

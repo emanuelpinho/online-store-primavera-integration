@@ -1,17 +1,41 @@
 ﻿<div ng-controller="HomepageController">
-    <h4>HOME</h4>
-    <ul>
-        <li ng-repeat="product in products">
-            {{product.CodArtigo}} {{product.DescArtigo}}
-        </li>
-    </ul>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
 
-    <form>
-        <input type="text" ng-model="user.CodCliente" />
-        <input type="text" ng-model="user.NomeCliente" />
-        <input type="text" ng-model="user.NumContribuinte" />
-        <input type="text" ng-model="user.Moeda" />
+            <div class="jumbotron">
+                <h1>
+                    Benvindo à BelaFlor
+                </h1>
+                <p>
+                    Veja o nosso catálogo online e efectue encomendas na nossa plataforma!
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-large" href="#">Ver catálogo</a>
+                </p>
+            </div>
+        </div>
+    </div>
 
-        <button ng-click="register(user)" value="Registar"></button>
-    </form>
+    <div class="row clearfix">
+        
+        <div class="col-md-4 column" ng-repeat="product in products">
+            <h2>
+                {{product.DescArtigo}}
+            </h2>
+            <p>
+                {{product.CodArtigo}}
+            </p>
+
+            <p ng-show="!isAddedToBasket(product)">
+                <a class="btn btn-primary" href="" ng-click="addProduct(product)">Adicionar ao carrinho</a>
+            </p>
+            <p ng-show="isAddedToBasket(product)">
+                Adicionado ao carrinho de compras!
+            </p>
+            <p>
+                <a class="btn" href="#">Ver detalhes »</a>
+            </p>
+        </div>
+
+    </div>
 </div>

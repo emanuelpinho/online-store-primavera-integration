@@ -1,16 +1,39 @@
 ﻿// initialize app
-var app = angular.module('belaFlor', ['ui.router']);
+var app = angular.module('belaFlor', ['ui.router', 'ngCookies']);
 
 // configure routes/states
 app.config(function ($stateProvider, $urlRouterProvider) {
 
     // default route
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/");
 
     // setup app states
     $stateProvider
-      .state('home', {
-          url: "/home",
-          templateUrl: "Scripts/partials/home.html"
-      });
+      .state('base', {
+          abstract:true,
+          //templateUrl: "Scripts/partials/main.html",
+          views: {
+              'topnavbar': {
+                  templateUrl: 'Scripts/partials/topnavbar.html'
+              },
+              '': {
+                  templateUrl: "Scripts/partials/main.html"
+              }
+          }
+      })
+    .state('base.home', {
+          url: "/",
+          templateUrl: "Scripts/partials/home.html",
+          parent: 'base'
+      })
+    .state('base.authentication', {
+        url: "/auth",
+        templateUrl: "Scripts/partials/authentication.html",
+        parent: 'base'
+    })
+    .state('base.basket', {
+        url: "/basket",
+        templateUrl: "Scripts/partials/basket.html",
+        parent: 'base'
+    });
 });

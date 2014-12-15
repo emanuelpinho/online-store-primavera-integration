@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>@ViewBag.Title</title>
+    <title>BelaFlor</title>
     @Styles.Render("~/Content/store-styles")
+    <link type="text/css" rel="stylesheet" href="Images/boostrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="Images/bootstrap-theme.min.css" />
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -19,12 +21,16 @@
 </head><!--/head-->
 <body ng-app="belaFlor">
     
-    <!--
+    <div class="container">
+        <div ui-view="topnavbar"></div>
+        <ui-view></ui-view>
+    </div>
+    
     @RenderBody()
-    -->
-    <ui-view></ui-view>
+   
     
-    
+    <script src="Scripts/jquery-2.1.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
     <script src="Scripts/angular-resource.min.js"></script>
@@ -36,6 +42,14 @@
     <script src="Scripts/constants/api-endpoints.js"></script>
     <script src="Scripts/services/authentication.js"></script>
     <script src="Scripts/services/product.js"></script>
+    <script src="Scripts/services/basket.js"></script>
+    <script src="Scripts/services/order.js"></script>
     <script src="Scripts/controllers/homepage.js"></script>
+    <script src="Scripts/controllers/authentication.js"></script>
+    <script src="Scripts/controllers/topnavbar.js"></script>
+    <script src="Scripts/controllers/basket.js"></script>
+    <!--
+    @RenderSection("scripts", required: false)
+    -->
 </body>
 </html>

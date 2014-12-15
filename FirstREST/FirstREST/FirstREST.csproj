@@ -285,13 +285,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\store-styles\animate.css" />
+    <Content Include="Content\store-styles\bootstrap-theme.min.css" />
     <Content Include="Content\store-styles\font-awesome.css" />
     <Content Include="Content\store-styles\main.css" />
     <Content Include="Content\store-styles\responsive.css" />
     <Content Include="Content\store-styles\price-range.css" />
     <Content Include="Content\store-styles\prettyPhoto.css" />
     <Content Include="Content\store-styles\boostrap.min.css" />
+    <Content Include="Content\themes\base\boostrap.min.css" />
+    <Content Include="Content\themes\base\bootstrap-theme.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -361,6 +365,8 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Areas\Views\Views\Web.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\boostrap.min.css" />
+    <Content Include="Images\bootstrap-theme.min.css" />
     <Content Include="Images\view1.html" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
@@ -369,11 +375,16 @@
     <Content Include="Scripts\angular-ui-router.min.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\constants\api-endpoints.js" />
+    <Content Include="Scripts\controllers\authentication.js" />
+    <Content Include="Scripts\controllers\basket.js" />
     <Content Include="Scripts\controllers\homepage.js" />
+    <Content Include="Scripts\controllers\topnavbar.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -385,7 +396,13 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\partials\authentication.html" />
+    <Content Include="Scripts\partials\basket.html" />
     <Content Include="Scripts\partials\home.html" />
+    <Content Include="Scripts\partials\main.html" />
+    <Content Include="Scripts\partials\topnavbar.html" />
+    <Content Include="Scripts\services\basket.js" />
+    <Content Include="Scripts\services\order.js" />
     <Content Include="Scripts\services\product.js" />
     <Content Include="Scripts\services\authentication.js" />
     <Content Include="Web.config">

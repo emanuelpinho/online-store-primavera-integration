@@ -58,10 +58,7 @@ namespace FirstREST.Lib_Primavera
         public static Lib_Primavera.Model.Cliente GetCliente(string codCliente)
         {
             ErpBS objMotor = new ErpBS();
-
             GcpBECliente objCli = new GcpBECliente();
-
-
             Model.Cliente myCli = new Model.Cliente();
 
             if (PriEngine.InitializeCompany("BELAFLOR", "admin", "admin") == true)
@@ -83,6 +80,38 @@ namespace FirstREST.Lib_Primavera
             }
             else
                 return null;
+        }
+
+        public static Lib_Primavera.Model.Cliente GetClientByCredentials(string username, string password)
+        {
+            
+            if (!PriEngine.InitializeCompany("BELAFLOR", "admin", "admin"))
+            {
+                return null;
+            }
+            ErpBS objMotor = new ErpBS();
+            StdBELista objList;
+
+            Model.Cliente cli = null;
+
+            string query = "SELECT Cliente, Nome, Moeda, NumContrib AS NumContribuinte, B2BTransaccoes AS Username, Descricao AS Password FROM CLIENTES WHERE B2BTransaccoes LIKE '" + username + "' AND Descricao LIKE '" + password + "'";
+    
+            objList = PriEngine.Engine.Consulta(query);
+
+            while (!objList.NoFim())
+            {
+                cli = new Model.Cliente();
+                cli.CodCliente = objList.Valor("Cliente");
+                cli.NomeCliente = objList.Valor("Nome");
+                cli.Moeda = objList.Valor("Moeda");
+                cli.NumContribuinte = objList.Valor("NumContribuinte");
+                cli.Username = objList.Valor("Username");
+                cli.Password = objList.Valor("Password");
+
+                objList.Seguinte();
+            }
+
+            return cli;
         }
 
         public static Lib_Primavera.Model.RespostaErro UpdCliente(Lib_Primavera.Model.Cliente cliente)
@@ -207,6 +236,9 @@ namespace FirstREST.Lib_Primavera
                     myCli.set_NumContribuinte(cli.NumContribuinte);
                     myCli.set_Moeda(cli.Moeda);
 
+                    myCli.set_B2BTransaccoes(cli.Username);
+                    myCli.set_Descricao(cli.Password);
+                    
                     PriEngine.Engine.Comercial.Clientes.Actualiza(myCli);
 
                     erro.Erro = 0;
@@ -509,7 +541,11 @@ namespace FirstREST.Lib_Primavera
             }
             catch (Exception ex)
             {
+                try { 
                 PriEngine.Engine.DesfazTransaccao();
+                }
+                catch (Exception exTrans) {
+                }
                 erro.Erro = 1;
                 erro.Descricao = ex.Message;
                 return erro;
@@ -534,8 +570,6 @@ namespace FirstREST.Lib_Primavera
             PreencheRelacaoVendas rl = new PreencheRelacaoVendas();
             List<Model.LinhaDocVenda> lstlindv = new List<Model.LinhaDocVenda>();
             
-            try
-            {
                 if (PriEngine.InitializeCompany("BELAFLOR", "admin", "admin") == true)
                 {
                     // Atribui valores ao cabecalho do doc
@@ -570,14 +604,7 @@ namespace FirstREST.Lib_Primavera
 
                 }
 
-            }
-            catch (Exception ex)
-            {
-                PriEngine.Engine.DesfazTransaccao();
-                erro.Erro = 1;
-                erro.Descricao = ex.Message;
-                return erro;
-            }
+            
         }
 
 
