@@ -1,0 +1,103 @@
+﻿<div ng-controller="AuthenticationController">
+    <form class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Cliente Já Registado?</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="username-input">Username</label>
+                <div class="col-md-4">
+                    <input id="username-input" name="username-input" type="text" placeholder="" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="password-input">Password</label>
+                <div class="col-md-4">
+                    <input id="password-input" name="password-input" type="password" placeholder="" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for=""></label>
+                <div class="col-md-4">
+                    <button id="" name="" class="btn btn-success">Login</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+    <hr />
+
+    <form class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Novo Cliente?</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="username-input">Username</label>
+                <div class="col-md-4">
+                    <input ng-model="newUser.Username" id="username-input" name="username-input" type="text" placeholder="" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="password-input">Password</label>
+                <div class="col-md-4">
+                    <input ng-model="newUser.Password" id="password-input" name="password-input" type="password" placeholder="" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="name-input">Nome</label>
+                <div class="col-md-4">
+                    <input ng-model="newUser.NomeCliente" id="name-input" name="name-input" type="text" placeholder="" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="contribuinte-input">Nº Contribuinte</label>
+                <div class="col-md-4">
+                    <input ng-model="newUser.NumContribuinte" id="contribuinte-input" name="contribuinte-input" type="text" placeholder="" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="currency-input">Moeda</label>
+                <div class="col-md-4">
+                    <select ng-model="newUser.Moeda" id="currency-input" name="currency-input" class="form-control">
+                        <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for=""></label>
+                <div class="col-md-4">
+                    <button ng-click="register()" id="" name="" class="btn btn-success">Efectuar Registo</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
