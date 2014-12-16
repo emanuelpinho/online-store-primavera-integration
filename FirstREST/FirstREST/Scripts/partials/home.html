@@ -1,22 +1,22 @@
 ﻿<div ng-controller="HomepageController">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-
-            <div class="jumbotron">
-                <h1>
-                    Benvindo à BelaFlor
-                </h1>
-                <p>
-                    Veja o nosso catálogo online e efectue encomendas na nossa plataforma!
-                </p>
-                <p>
-                    <a class="btn btn-primary btn-large" href="#">Ver catálogo</a>
-                </p>
-            </div>
+    <div class="row">
+        <div class="col-lg-4" ng-repeat="product in products">
+            <img class="img-circle" src="http://www.revitalizenotmilitarize.org/wp-content/uploads/2013/10/FlowerPower_v1.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+            <h4>
+                {{product.DescArtigo}}
+            </h4>
+            <p>
+                {{product.CodArtigo}}
+            </p>
+            <p>
+                {{product.pvp1}}
+            </p>
+            <p><a class="btn btn-group" ng-href="#/details/{{product.ID}}">Ver detalhes »</a></p>
         </div>
     </div>
 
-    <div class="row clearfix">
+    <!--
+        <div class="row clearfix">
         
         <div class="col-md-4 column" ng-repeat="product in products">
             <h2>
@@ -28,6 +28,11 @@
             <p>
                 {{product.pvp1}}
             </p>
+            <h2>
+                {{product.Observacoes}}
+                {{product.ArmazensStk[0].Armazem}}
+            </h2>
+            <img ng-src=" {{product.Observacoes}}" />
 
             <p ng-show="!isAddedToBasket(product)">
                 <a class="btn btn-primary" href="" ng-click="addProduct(product)">Adicionar ao carrinho</a>
@@ -39,4 +44,7 @@
         </div>
 
     </div>
+
+    -->
+    
 </div>

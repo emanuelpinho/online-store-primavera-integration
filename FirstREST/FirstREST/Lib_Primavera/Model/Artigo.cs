@@ -31,5 +31,16 @@ namespace FirstREST.Lib_Primavera.Model
             set;
         }
 
+        public string Observacoes
+        {
+            get;
+            set;
+        }
+
+        public List<Model.ArtigoArmazem> ArmazensStk
+        {
+            get;
+            set;
+        }
     }
 }

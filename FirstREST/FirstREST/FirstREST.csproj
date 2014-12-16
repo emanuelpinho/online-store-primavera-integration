@@ -274,6 +274,7 @@
     </Compile>
     <Compile Include="Lib_Primavera\Comercial.cs" />
     <Compile Include="Lib_Primavera\Model\Artigo.cs" />
+    <Compile Include="Lib_Primavera\Model\ArtigoArmazem.cs" />
     <Compile Include="Lib_Primavera\Model\Cliente.cs" />
     <Compile Include="Lib_Primavera\Model\DocCompra.cs" />
     <Compile Include="Lib_Primavera\Model\DocVenda.cs" />

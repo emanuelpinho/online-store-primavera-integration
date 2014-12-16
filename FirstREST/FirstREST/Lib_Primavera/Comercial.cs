@@ -325,8 +325,15 @@ namespace FirstREST.Lib_Primavera
                 {
                     objArtigo = PriEngine.Engine.Comercial.Artigos.Edita(codArt);
 
+                    //StdBELista objListArm = PriEngine.Engine.Consulta("SELECT ARMAZEM, STKACTUAL, QTRESERVADA FROM ARTIGOARMAZEM WHERE ARTIGO='" + objArtigo.get_Artigo() + "'");
+                    StdBELista objListArm = PriEngine.Engine.Consulta("SELECT ARMAZENS.DESCRICAO, ARTIGOARMAZEM.STKACTUAL, ARTIGOARMAZEM.QTRESERVADA FROM ARTIGOARMAZEM, ARMAZENS WHERE ARTIGOARMAZEM.ARTIGO='" + objArtigo.get_Artigo() + "' AND ARTIGOARMAZEM.ARMAZEM = ARMAZENS.ARMAZEM");
+                    List<Model.ArtigoArmazem> listArmazem = new List<Model.ArtigoArmazem>();
+                    Model.ArtigoArmazem linArm = new Model.ArtigoArmazem();
+
+
                     myArt.CodArtigo = objArtigo.get_Artigo();
                     myArt.DescArtigo = objArtigo.get_Descricao();
+                    myArt.Observacoes = objArtigo.get_Observacoes();
 
                     int j = 1;
                     double pvp = 0.0;
@@ -343,6 +350,19 @@ namespace FirstREST.Lib_Primavera
                         objList1.Seguinte();
                     }
 
+                    while (!objListArm.NoFim())
+                    {
+                        linArm = new Model.ArtigoArmazem();
+                        linArm.Armazem = objListArm.Valor("Descricao");
+                        linArm.QtReservada = objListArm.Valor("QtReservada");
+                        linArm.StkActual = objListArm.Valor("StkActual");
+
+                        listArmazem.Add(linArm);
+                        objListArm.Seguinte();
+                    }
+
+                    myArt.ArmazensStk = listArmazem;
+                    
 
                   myArt.pvp1 = pvp;
 
