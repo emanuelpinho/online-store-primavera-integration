@@ -1,6 +1,10 @@
 ﻿app.service('BasketService', [function () {
     this.basket = {};
 
+    this.getBasket = function () {
+        return this.basket;
+    };
+
     this.addProduct = function (product) {
         if (this.basket.hasOwnProperty(product.CodArtigo)) {
             return;

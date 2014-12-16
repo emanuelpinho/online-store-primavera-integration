@@ -1,12 +1,13 @@
-﻿app.controller('HomepageController', ['$scope', '$state', 'ProductService', 'AuthenticationService', 'BasketService', function ($scope, $state, ProductService, AuthenticationService, BasketService) {
+﻿app.controller('DetailsController', ['$scope', '$stateParams', 'ProductService', 'AuthenticationService', 'BasketService', function ($scope, $stateParams, ProductService, AuthenticationService, BasketService) {
 
-    $scope.state = $state;
+    $scope.id = $stateParams.id;
 
-    $scope.products = [];
-    ProductService.getProducts()
+    ProductService.getProductsID($scope.id)
         .success(function handleProductsResult(result) {
-            $scope.products = result;
+            $scope.product = result;
         });
+
+
     $scope.user = {
         CodCliente: 'VD32',
         NomeCliente: 'AlgumNome',

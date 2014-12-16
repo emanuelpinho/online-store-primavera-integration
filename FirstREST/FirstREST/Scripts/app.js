@@ -31,6 +31,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "Scripts/partials/authentication.html",
         parent: 'base'
     })
+    .state('base.details', {
+        url: "/details/:id",
+        templateUrl: "Scripts/partials/details.html",
+        controller: "DetailsController",
+        parent: 'base'
+    })
     .state('base.basket', {
         url: "/basket",
         templateUrl: "Scripts/partials/basket.html",

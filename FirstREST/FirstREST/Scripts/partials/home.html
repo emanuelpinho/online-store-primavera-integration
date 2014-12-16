@@ -25,6 +25,9 @@
             <p>
                 {{product.CodArtigo}}
             </p>
+            <p>
+                {{product.pvp1}}
+            </p>
 
             <p ng-show="!isAddedToBasket(product)">
                 <a class="btn btn-primary" href="" ng-click="addProduct(product)">Adicionar ao carrinho</a>
@@ -32,9 +35,7 @@
             <p ng-show="isAddedToBasket(product)">
                 Adicionado ao carrinho de compras!
             </p>
-            <p>
-                <a class="btn" href="#">Ver detalhes »</a>
-            </p>
+            <a class="btn btn-group" ng-href="#/details/{{product.ID}}">Ver detalhes »</a>
         </div>
 
     </div>

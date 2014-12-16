@@ -37,4 +37,8 @@
     this.getUser = function () {
         return $cookieStore.get('user');
     };
+
+    this.isAuthenticated = function () {
+        return !!$cookieStore.get('user');
+    };
 }]);

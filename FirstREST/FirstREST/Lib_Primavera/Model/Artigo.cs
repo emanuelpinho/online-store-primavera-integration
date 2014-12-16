@@ -7,6 +7,12 @@ namespace FirstREST.Lib_Primavera.Model
 {
     public class Artigo
     {
+        public int ID
+        {
+            get;
+            set;
+        }
+
         public string CodArtigo
         {
             get;
@@ -19,7 +25,7 @@ namespace FirstREST.Lib_Primavera.Model
             set;
         }
 
-        public string pvp1
+        public double pvp1
         {
             get;
             set;

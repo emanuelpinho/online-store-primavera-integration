@@ -1,0 +1,23 @@
+﻿<div ng-controller="DetailsController">
+    <div class="row clearfix">
+
+        <div class="col-md-4 column" >
+            <h2>
+                {{product.DescArtigo}}
+            </h2>
+            <p>
+                {{product.CodArtigo}}
+            </p>
+            <p>
+                {{product.pvp1}} EUR
+            </p>
+            <p ng-show="!isAddedToBasket(product)">
+                <a class="btn btn-primary" href="" ng-click="addProduct(product)">Adicionar ao carrinho</a>
+            </p>
+            <p ng-show="isAddedToBasket(product)">
+                Adicionado ao carrinho de compras!
+            </p>
+        </div>
+
+    </div>
+</div>

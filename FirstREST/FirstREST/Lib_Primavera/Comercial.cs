@@ -238,6 +238,10 @@ namespace FirstREST.Lib_Primavera
 
                     myCli.set_B2BTransaccoes(cli.Username);
                     myCli.set_Descricao(cli.Password);
+
+                    myCli.set_CondPag("1");
+                    myCli.set_TipoCredito("1");
+                    myCli.set_Situacao("ACTIVO");
                     
                     PriEngine.Engine.Comercial.Clientes.Actualiza(myCli);
 
@@ -292,24 +296,57 @@ namespace FirstREST.Lib_Primavera
         public static Lib_Primavera.Model.Artigo GetArtigo(string codArtigo)
         {
             
-
+            StdBELista objList;
+            StdBELista objList1;
             GcpBEArtigo objArtigo = new GcpBEArtigo();
             Model.Artigo myArt = new Model.Artigo();
 
             if (PriEngine.InitializeCompany("BELAFLOR", "admin", "admin") == true)
             {
+                objList = PriEngine.Engine.Comercial.Artigos.LstArtigos();
+                objList1 = PriEngine.Engine.Consulta("SELECT PVP1 FROM ARTIGOMOEDA");
 
-                if (PriEngine.Engine.Comercial.Artigos.Existe(codArtigo) == false)
+                int i = 1;
+                string codArt = null;
+                int cod = Int32.Parse(codArtigo);
+                while (!objList.NoFim()) {
+                    if (cod == i) {
+                        codArt = objList.Valor("artigo");
+                    }
+
+                        i++;
+                    objList.Seguinte();
+                }
+                if (PriEngine.Engine.Comercial.Artigos.Existe(codArt) == false)
                 {
                     return null;
                 }
                 else
                 {
-                    objArtigo = PriEngine.Engine.Comercial.Artigos.Edita(codArtigo);
+                    objArtigo = PriEngine.Engine.Comercial.Artigos.Edita(codArt);
+
                     myArt.CodArtigo = objArtigo.get_Artigo();
                     myArt.DescArtigo = objArtigo.get_Descricao();
 
-                    return myArt;
+                    int j = 1;
+                    double pvp = 0.0;
+
+                    int codx = Int32.Parse(codArtigo);
+                    myArt.ID = codx;
+
+                    while (!objList1.NoFim()) {
+                        if (codx == j) {
+                            pvp = objList1.Valor("pvp1");
+                        }
+
+                        j++;
+                        objList1.Seguinte();
+                    }
+
+
+                  myArt.pvp1 = pvp;
+
+                  return myArt;
                 }
                 
             }
@@ -325,6 +362,7 @@ namespace FirstREST.Lib_Primavera
             ErpBS objMotor = new ErpBS();
            
             StdBELista objList;
+            StdBELista objList1;
 
             Model.Artigo art = new Model.Artigo();
             List<Model.Artigo> listArts = new List<Model.Artigo>();
@@ -333,18 +371,20 @@ namespace FirstREST.Lib_Primavera
             {
 
                 objList = PriEngine.Engine.Comercial.Artigos.LstArtigos();
-
+                objList1 = PriEngine.Engine.Consulta("SELECT PVP1 FROM ARTIGOMOEDA");
+                int i = 1;
                 while (!objList.NoFim())
                 {
                     art = new Model.Artigo();
+                    art.ID = i;
                     art.CodArtigo = objList.Valor("artigo");
                     art.DescArtigo = objList.Valor("descricao");
-              
-                    //art.pvp1 = objList.Valor("pesoliquido");
+                    art.pvp1 = objList1.Valor("pvp1");
                    
-
                     listArts.Add(art);
+                    i++;
                     objList.Seguinte();
+                    objList1.Seguinte();
                 }
 
                 return listArts;

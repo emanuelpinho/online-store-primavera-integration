@@ -22,7 +22,7 @@ namespace FirstREST.Controllers
         }
 
 
-        // GET api/artigo/5    
+        // GET api/Artigos/2    
         public Artigo Get(string id)
         {
             Lib_Primavera.Model.Artigo artigo = Lib_Primavera.Comercial.GetArtigo(id);
