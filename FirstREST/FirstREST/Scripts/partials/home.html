@@ -1,7 +1,8 @@
 ﻿<div ng-controller="HomepageController">
     <div class="row">
         <div class="col-lg-4" ng-repeat="product in products">
-            <img class="img-circle" src="http://www.revitalizenotmilitarize.org/wp-content/uploads/2013/10/FlowerPower_v1.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+            <img ng-show="!product.Observacoes" class="img-circle" src="http://www.revitalizenotmilitarize.org/wp-content/uploads/2013/10/FlowerPower_v1.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+            <img ng-show="!!product.Observacoes" class="img-circle" src="{{product.Observacoes}}" alt="Generic placeholder image" style="width: 140px; height: 140px;">
             <h4>
                 {{product.DescArtigo}}
             </h4>

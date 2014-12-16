@@ -365,6 +365,11 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Areas\Views\Views\Web.config" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular-cookies.min.js.map" />
+    <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\boostrap.min.css" />
     <Content Include="Images\bootstrap-theme.min.css" />
@@ -382,6 +387,7 @@
     <Content Include="Scripts\controllers\basket.js" />
     <Content Include="Scripts\controllers\details.js" />
     <Content Include="Scripts\controllers\homepage.js" />
+    <Content Include="Scripts\controllers\orders.js" />
     <Content Include="Scripts\controllers\topnavbar.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -403,6 +409,7 @@
     <Content Include="Scripts\partials\details.html" />
     <Content Include="Scripts\partials\home.html" />
     <Content Include="Scripts\partials\main.html" />
+    <Content Include="Scripts\partials\orders.html" />
     <Content Include="Scripts\partials\topnavbar.html" />
     <Content Include="Scripts\services\basket.js" />
     <Content Include="Scripts\services\order.js" />

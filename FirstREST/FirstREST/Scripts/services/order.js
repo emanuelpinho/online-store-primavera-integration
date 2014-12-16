@@ -54,4 +54,14 @@
         });
     };
 
+    this.fetchOrders = function () {
+        return $http({
+            method: 'GET',
+            url: API.host + API.order + '/' + AuthenticationService.getUser().CodCliente,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    };
+
 }]);

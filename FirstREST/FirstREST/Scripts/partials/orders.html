@@ -1,0 +1,41 @@
+﻿<div ng-controller="OrdersController">
+    <div ng-repeat="order in orders" style="margin-bottom: 20px">
+        <h2>Encomenda {{order.NumDoc}}</h2>
+        <ul>
+            <li>Data: {{order.Data}}</li>
+            <li>Série: {{order.Serie}}</li>
+            <li>Fechado: <span ng-show="order.Fechado">Sim</span> <span ng-show="!order.Fechado">Não</span></li>
+            <li>Anulado: <span ng-show="order.Anulado">Sim</span> <span ng-show="!order.Anulado">Não</span></li>
+            <li>Estado: {{order.Estado}}</li>
+        </ul>
+        
+        <h4>Linhas</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Cód. Artigo</td>
+                    <td>Descrição</td>
+                    <td>Unidade</td>
+                    <td>Quantidade</td>
+                    <td>Preço Unitário</td>
+                    <td>Desconto</td>
+                    <td>Preço Total</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="line in order.LinhasDoc">
+                    <td>{{line.CodArtigo}}</td>
+                    <td>{{line.DescArtigo}}</td>
+                    <td>{{line.Unidade}}</td>
+                    <td>{{line.Quantidade}}</td>
+                    <td>{{line.PrecoUnitario}}</td>
+                    <td>{{line.Desconto}}</td>
+                    <td>{{line.TotalLiquido}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr />
+    </div>
+
+    <h3 ng-show="orders.length === 0">Sem encomendas realizadas</h3>
+</div>

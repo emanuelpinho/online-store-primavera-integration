@@ -14,6 +14,11 @@
     console.log($scope.basketService.basket);
     $scope.incrementQuantity = BasketService.incrementQuantity;
     $scope.decrementQuantity = BasketService.decrementQuantity;
-    $scope.makeOrder = OrderService.makeOrder;
-
+    $scope.makeOrder = function () {
+        try{
+            OrderService.makeOrder();
+        } catch (e) {
+            alert(e.message);
+        }
+    }
 }]);

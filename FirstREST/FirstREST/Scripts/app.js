@@ -41,5 +41,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: "/basket",
         templateUrl: "Scripts/partials/basket.html",
         parent: 'base'
+    })
+    .state('base.orders', {
+        url: "/orders",
+        templateUrl: "Scripts/partials/orders.html",
+        parent: 'base'
     });
 });

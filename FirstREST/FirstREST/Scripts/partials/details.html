@@ -1,7 +1,9 @@
 ﻿<div ng-controller="DetailsController">
     <div class="row clearfix">
             <div class="col-lg-12" style="text-align:center;">
-                <img class="img-circle" src="http://www.revitalizenotmilitarize.org/wp-content/uploads/2013/10/FlowerPower_v1.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                <img ng-show="!product.Observacoes" class="img-circle" src="http://www.revitalizenotmilitarize.org/wp-content/uploads/2013/10/FlowerPower_v1.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                <img ng-show="!!product.Observacoes" class="img-circle" src="{{product.Observacoes}}" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+
                 <h3>
                     {{product.DescArtigo}}
                 </h3>
@@ -11,12 +13,24 @@
                 <p>
                     {{product.pvp1}} EUR
                 </p>
+
+                <h1>Armazéns</h1>
+
+                <div ng-repeat="(name, stock) in warehouses" class="panel panel-default">
+                    <div class="panel-body">
+                        {{name}}
+                    </div>
+                    <div class="panel-footer">{{stock}}</div>
+                </div>
+
                 <p ng-show="!isAddedToBasket(product)">
                     <a class="btn btn-primary" href="" ng-click="addProduct(product)">Adicionar ao carrinho</a>
                 </p>
                 <p ng-show="isAddedToBasket(product)">
                     Adicionado ao carrinho de compras!
                 </p>
+
+                
             </div>
        </div>
 </div>
